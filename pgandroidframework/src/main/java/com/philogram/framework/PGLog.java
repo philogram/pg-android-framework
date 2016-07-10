@@ -2,6 +2,8 @@ package com.philogram.framework;
 
 import android.util.Log;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
 /**
@@ -9,7 +11,7 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
  */
 public class PGLog implements PGConstant
 {
-	String tag;
+	private String tag;
 
 	public PGLog(Object object)
 	{
@@ -34,6 +36,21 @@ public class PGLog implements PGConstant
 	protected void debug(String log)
 	{
 		Log.d(tag, log);
+	}
+
+	protected void error(Object log)
+	{
+		Log.e(tag, objectMapper.writeValueAsString(log));
+	}
+
+	protected void info(Object log)
+	{
+		Log.i(tag, objectMapper.writeValueAsString(log));
+	}
+
+	protected void debug(Object log)
+	{
+		Log.d(tag, objectMapper.writeValueAsString(log));
 	}
 
 	protected void exception(Exception e)

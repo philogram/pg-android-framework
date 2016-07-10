@@ -7,6 +7,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 public interface PGConstant
 {
-	ObjectMapper OBJECT_MAPPER = new ObjectMapper();
-	PGApplication PG_APPLICATION = PGApplication.getInstance();
+	PGObjectMapper objectMapper = new PGObjectMapper();
+	PGApplication pgApplication = PGApplication.getInstance();
 }
