@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/pg-android-framework.iml" filepath="$PROJECT_DIR$/pg-android-framework.iml" />
       <module fileurl="file://$PROJECT_DIR$/pgframework/app.iml" filepath="$PROJECT_DIR$/pgframework/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pg-android-framework.iml" filepath="$PROJECT_DIR$/pg-android-framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pgframework/pgframework.iml" filepath="$PROJECT_DIR$/pgframework/pgframework.iml" />
     </modules>
   </component>
 </project>
