@@ -3,16 +3,10 @@ package com.philogram.framework;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PersistableBundle;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
-import org.apache.commons.lang3.exception.ExceptionUtils;
-
-import java.util.HashMap;
-import java.util.Map;
-
-public class PGAppCompatActivity extends AppCompatActivity
+public class PGFragmentActivity extends FragmentActivity
 		implements PGApplicationStateListener, PGConstant
 {
 	protected PGLog pgLog = new PGLog(this);
