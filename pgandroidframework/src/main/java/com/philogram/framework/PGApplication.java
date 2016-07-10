@@ -4,14 +4,13 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by bigmandoo on 16. 7. 9..
- */
 public abstract class PGApplication extends Application implements Application.ActivityLifecycleCallbacks
 {
 	private static PGApplication INSTANCE;
@@ -107,8 +106,22 @@ public abstract class PGApplication extends Application implements Application.A
 			if (activity.getApplication() instanceof PGApplication)
 				appDidEnterForeground();
 
-			if (activity instanceof PGApplicationStateListener)
-				((PGApplicationStateListener) activity).appDidEnterForeground();
+			for (Activity a : activityStack)
+			{
+				if (a instanceof PGApplicationStateListener)
+					((PGApplicationStateListener) activity).appDidEnterForeground();
+
+				if (a instanceof FragmentActivity)
+				{
+					for (Fragment fragment : ((FragmentActivity) a).getSupportFragmentManager().getFragments())
+					{
+						if (fragment instanceof PGApplicationStateListener)
+						{
+							((PGApplicationStateListener) fragment).appDidEnterForeground();
+						}
+					}
+				}
+			}
 
 			inBackground = false;
 		}
@@ -131,8 +144,22 @@ public abstract class PGApplication extends Application implements Application.A
 
 			appDidEnterBackground();
 
-			if (activity instanceof PGApplicationStateListener)
-				((PGApplicationStateListener) activity).appDidEnterBackground();
+			for (Activity a : activityStack)
+			{
+				if (a instanceof PGApplicationStateListener)
+					((PGApplicationStateListener) activity).appDidEnterBackground();
+
+				if (a instanceof FragmentActivity)
+				{
+					for (Fragment fragment : ((FragmentActivity) a).getSupportFragmentManager().getFragments())
+					{
+						if (fragment instanceof PGApplicationStateListener)
+						{
+							((PGApplicationStateListener) fragment).appDidEnterBackground();
+						}
+					}
+				}
+			}
 		}
 	}
 
