@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/pgframework/app.iml" filepath="$PROJECT_DIR$/pgframework/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/pg-android-framework.iml" filepath="$PROJECT_DIR$/pg-android-framework.iml" />
-      <module fileurl="file://$PROJECT_DIR$/pgframework/pgframework.iml" filepath="$PROJECT_DIR$/pgframework/pgframework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pgandroidframework/pgframework.iml" filepath="$PROJECT_DIR$/pgandroidframework/pgframework.iml" />
     </modules>
   </component>
 </project>
